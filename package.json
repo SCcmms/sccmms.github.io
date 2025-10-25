@@ -1,5 +1,6 @@
 {
   "name": "lyneodata-landing-page",
+  "packageManager": "pnpm@10.13.1",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
