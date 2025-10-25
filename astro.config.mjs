@@ -11,5 +11,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [react()],
-  site: "https://sccmms.github.io",
+  site: "https://lyneodata.com",
 });
