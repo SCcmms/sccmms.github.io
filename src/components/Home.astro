@@ -1,11 +1,6 @@
 ---
-const navItems = [
-  { label: "Nasza misja", href: "/o-nas/" },
-  { label: "Projekty", href: "#projekty" },
-  { label: "Technologia", href: "/technologia/" },
-  { label: "Nasz zespół", href: "#zespol" },
-  { label: "Kontakt", href: "#kontakt" },
-];
+import SiteHeader from "./SiteHeader.astro";
+import SiteFooter from "./SiteFooter.astro";
 
 const capabilities = [
   "Modelowanie procesów i pracy urządzeń",
@@ -21,7 +16,7 @@ const workSteps = [
     eyebrow: "Zbierz dane",
     title: ["Z różnych", "źródeł"],
     body:
-      "",
+      "Dane z systemów produkcyjnych, utrzymania ruchu, jakości i dokumentacji technicznej są konsolidowane w jednym miejscu, aby stworzyć pełny obraz pracy zakładu.",
     image: "/assets/home/work-data.png",
     imageAlt: "Analityczka przeglądająca dane produkcyjne na panelu wizualnym",
   },
@@ -29,7 +24,7 @@ const workSteps = [
     eyebrow: "Wykorzystaj potencjał",
     title: ["Platformy", "LyneoData"],
     body:
-      "",
+      "LyneoData Platform porządkuje rozproszone informacje, łączy je z kontekstem operacyjnym i udostępnia zespołom przemysłowym w formie gotowej do analizy oraz podejmowania decyzji.",
     image: "/assets/home/work-platform.png",
     imageAlt: "Wizualizacja danych w chmurze na urządzeniu mobilnym",
     reverse: true,
@@ -38,7 +33,7 @@ const workSteps = [
     eyebrow: "Osiągnij",
     title: ["rezultat"],
     body:
-      "",
+      "Lepszy dostęp do danych wspiera szybszą diagnostykę, ograniczanie przestojów, optymalizację procesów i rozwój predykcyjnego podejścia do zarządzania produkcją.",
     image: "/assets/home/work-result.png",
     imageAlt: "Specjaliści produkcji omawiają wyniki na hali przemysłowej",
   },
@@ -52,35 +47,7 @@ const workSteps = [
   >
     <div class="absolute inset-0 bg-black/20"></div>
 
-    <header
-      class="relative z-10 mx-auto flex w-full max-w-[1760px] flex-col gap-8 px-6 pt-8 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:px-20 lg:pt-[63px]"
-    >
-      <a href="#hero" aria-label="Lyneodata home">
-        <img
-          src="/assets/home/logo.png"
-          alt="Lyneodata"
-          class="h-auto w-[210px] sm:w-[260px] lg:w-[322px]"
-        />
-      </a>
-
-      <nav aria-label="Main navigation" class="hidden items-center gap-5 pt-[18px] lg:flex">
-        {
-          navItems.map((item) => (
-            <a
-              href={item.href}
-              class="group flex items-center gap-5 font-inter text-[20px] font-semibold leading-none tracking-[1px] text-white transition-colors hover:text-primary"
-            >
-              <span>{item.label}</span>
-              <span class="h-px w-[50px] bg-white/55 transition-colors group-hover:bg-primary" aria-hidden="true" />
-            </a>
-          ))
-        }
-      </nav>
-
-      <nav aria-label="Mobile navigation" class="flex flex-wrap gap-x-5 gap-y-3 font-inter text-sm font-semibold uppercase tracking-[0.08em] text-white/90 lg:hidden">
-        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
-      </nav>
-    </header>
+    <SiteHeader />
 
     <div class="relative z-10 mx-auto flex w-full max-w-[1500px] flex-1 flex-col items-center justify-center px-6 pb-28 pt-16 text-center lg:pb-36 lg:pt-10">
       <h1
@@ -89,7 +56,7 @@ const workSteps = [
         The voice of<br />manufacturing<br />data
       </h1>
       <a
-        href="#misja"
+        href="/o-nas"
         class="mt-8 inline-flex h-[60px] w-[240px] items-center justify-center rounded-md bg-primary font-poppins text-[24px] font-semibold leading-none text-white transition-colors hover:bg-[#367fac] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
       >
         Więcej o nas
@@ -122,7 +89,7 @@ const workSteps = [
               <h3 class="max-w-[390px] font-poppins text-[28px] font-semibold uppercase leading-tight tracking-[0.05em] text-primary xl:text-[36px] xl:leading-[1.2]">
                 {capability}
               </h3>
-              <a href="#technologia" class="group mt-8 flex items-center gap-5 font-inter text-[14px] font-semibold text-white">
+              <a href="/technologia" class="group mt-8 flex items-center gap-5 font-inter text-[14px] font-semibold text-white">
                 <span class="flex size-[50px] items-center justify-center rounded-full bg-primary text-white transition-colors group-hover:bg-[#367fac]">
                   <span class="ml-0.5 text-[18px]" aria-hidden="true">›</span>
                 </span>
@@ -189,12 +156,12 @@ const workSteps = [
     <div class="relative mx-auto grid min-h-[740px] w-full max-w-[1760px] items-center gap-16 px-6 sm:px-10 lg:grid-cols-[0.9fr_1fr] lg:px-20">
       <div class="relative mx-auto h-[460px] w-full max-w-[720px] sm:h-[560px]">
         <img
-          src="/assets/home/project-cloud-a.png"
+            src="/assets/technology/ai-dashboard.png"
           alt="Wizualizacja danych w chmurze na urządzeniu mobilnym"
           class="absolute left-0 top-0 h-[70%] w-[72%] rounded-[8px] object-cover shadow-2xl"
         />
         <img
-          src="/assets/home/project-cloud-b.png"
+            src="/assets/home/project-cloud-a.png"
           alt=""
           class="absolute bottom-0 right-0 h-[62%] w-[64%] rounded-[8px] object-cover shadow-2xl"
         />
@@ -210,7 +177,7 @@ const workSteps = [
         <p class="mt-8 font-poppins text-xl font-semibold leading-[1.42] text-white md:text-[24px]">
           LyneoData Platform tworzy jedno, spójne źródło wiedzy o procesach produkcyjnych, wspierając świadome decyzje operacyjne, optymalizację oraz rozwój rozwiązań predykcyjnych.
         </p>
-        <a href="#realizacje" class="group mt-12 inline-flex items-center gap-5 font-poppins text-[18px] font-semibold text-white">
+        <a href="mailto:biuro@lyneodata.com" class="group mt-12 inline-flex items-center gap-5 font-poppins text-[18px] font-semibold text-white">
           <span class="flex size-[50px] items-center justify-center rounded-full bg-primary transition-colors group-hover:bg-[#367fac]">
             <span class="ml-0.5 text-[18px]" aria-hidden="true">›</span>
           </span>
@@ -244,7 +211,7 @@ const workSteps = [
               <p class="mt-8 max-w-[560px] font-inter text-[18px] font-semibold leading-[1.2] tracking-[-0.01em] text-[#282828]">
                 {step.body}
               </p>
-              <a href="#kontakt" class="group mt-10 inline-flex items-center gap-5 font-inter text-[20px] font-semibold tracking-[0.05em] text-[#282828]">
+              <a href="/technologia" class="group mt-10 inline-flex items-center gap-5 font-inter text-[20px] font-semibold tracking-[0.05em] text-[#282828]">
                 <span class="flex size-[50px] items-center justify-center rounded-full bg-primary text-white transition-colors group-hover:bg-[#367fac]">
                   <span class="ml-0.5 text-[18px]" aria-hidden="true">›</span>
                 </span>
@@ -260,29 +227,5 @@ const workSteps = [
     </div>
   </section>
 
-  <footer class="relative overflow-hidden bg-[#030f10] py-16 text-white lg:min-h-[340px]" id="stopka">
-    <img
-      src="/assets/home/footer-texture.png"
-      alt=""
-      class="absolute inset-0 size-full object-cover opacity-30 mix-blend-screen"
-    />
-    <div class="relative mx-auto grid w-full max-w-[1760px] gap-12 px-6 sm:px-10 lg:grid-cols-[1fr_1.15fr_0.8fr] lg:items-center lg:px-20">
-      <div class="border-l border-white/35 pl-14 font-poppins text-[27px] font-semibold leading-[1.1]">
-        <!--<p>+48 123 456 789</p>-->
-        <p class="mt-8 text-[29px] tracking-[0.002em]">biuro@lyneodata.com</p>
-      </div>
-      <div class="border-l border-white/35 pl-14">
-        <p class="mt-8 font-poppins text-[27px] font-semibold leading-[1.1]">ul. Szlak 77 / 222, 31-153 Kraków</p>
-        <!--<div class="mt-8 flex items-center gap-6">-->
-          <!--<a href="https://facebook.com" aria-label="Facebook" class="block size-[31px] opacity-95 transition-opacity hover:opacity-70">-->
-          <!--  <img src="/assets/home/social-fb.svg" alt="" class="size-full" />-->
-          <!--</a>-->
-          <!--<a href="https://instagram.com" aria-label="Instagram" class="block size-[31px] opacity-95 transition-opacity hover:opacity-70">-->
-          <!--  <img src="/assets/home/social-ig.png" alt="" class="size-full" />-->
-          <!--</a>-->
-        <!--</div>-->
-      </div>
-      <img src="/assets/home/logo.png" alt="Lyneodata" class="w-[260px] justify-self-start lg:w-[320px] lg:justify-self-end" />
-    </div>
-  </footer>
+  <SiteFooter />
 </main>

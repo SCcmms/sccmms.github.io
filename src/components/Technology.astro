@@ -1,11 +1,6 @@
 ---
-const navItems = [
-  { label: "Nasza misja", href: "/o-nas/" },
-  { label: "Projekty", href: "/#projekty" },
-  { label: "Technologia", href: "/technologia/" },
-  { label: "Nasz zespół", href: "/#zespol" },
-  { label: "Kontakt", href: "/#kontakt" },
-];
+import SiteHeader from "./SiteHeader.astro";
+import SiteFooter from "./SiteFooter.astro";
 
 const integrations = [
   "systemy SCADA / DCS",
@@ -37,37 +32,7 @@ const technologyCards = [
   >
     <div class="absolute inset-0 bg-black/10"></div>
 
-    <header
-      class="relative z-20 mx-auto flex w-full max-w-[1760px] flex-col gap-8 px-6 pt-8 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:px-20 lg:pt-[63px]"
-    >
-      <a href="/" aria-label="Lyneodata home">
-        <img
-          src="/assets/home/logo.png"
-          alt="Lyneodata"
-          class="h-auto w-[210px] sm:w-[260px] lg:w-[322px]"
-        />
-      </a>
-
-      <nav aria-label="Main navigation" class="hidden items-center gap-5 pt-[18px] lg:flex">
-        {
-          navItems.map((item) => (
-            <a
-              href={item.href}
-              class="group flex items-center gap-5 font-inter text-[20px] font-semibold leading-none tracking-[1px] text-white transition-colors hover:text-primary"
-              aria-current={item.href === "/technologia/" ? "page" : undefined}
-            >
-              <span>{item.label}</span>
-              <span class="h-px w-[50px] bg-white/55 transition-colors group-hover:bg-primary" aria-hidden="true" />
-            </a>
-          ))
-        }
-        <span class="font-inter text-[20px] font-semibold leading-none tracking-[1px]">PL</span>
-      </nav>
-
-      <nav aria-label="Mobile navigation" class="flex flex-wrap gap-x-5 gap-y-3 font-inter text-sm font-semibold uppercase tracking-[0.08em] text-white/90 lg:hidden">
-        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
-      </nav>
-    </header>
+    <SiteHeader currentPath="/technologia/" />
 
     <div class="relative z-10 mx-auto flex min-h-[500px] w-full max-w-[1380px] flex-col items-center justify-center px-6 pb-20 pt-20 text-center lg:min-h-[620px] lg:pt-12">
       <h1
@@ -76,9 +41,6 @@ const technologyCards = [
       >
         Lyneodata Platform
       </h1>
-      <p class="mt-8 max-w-[880px] text-[23px] font-bold leading-[1.22] text-white md:text-[34px]">
-        Morbi lacinia in lorem non viverra. Morbi non arcu sit amet augue cursus sodales non vel dolor.
-      </p>
     </div>
   </section>
 
@@ -211,42 +173,5 @@ const technologyCards = [
     </div>
   </section>
 
-  <footer id="kontakt" class="relative overflow-hidden bg-[#030f10] py-16 text-white lg:min-h-[340px]">
-    <img
-      src="/assets/technology/footer.png"
-      alt=""
-      class="absolute inset-0 size-full object-cover opacity-35 mix-blend-screen"
-    />
-    <div class="absolute inset-0 bg-[#020707]/88"></div>
-
-    <div class="relative mx-auto grid w-full max-w-[1760px] gap-12 px-6 sm:px-10 lg:grid-cols-[0.9fr_1fr_0.85fr] lg:items-center lg:px-20">
-      <div class="border-l border-white/35 pl-10 lg:pl-14">
-        <div class="flex items-center gap-6">
-          <svg class="size-9 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.59 2.63a2 2 0 0 1-.45 2.11L8 9.71a16 16 0 0 0 6.29 6.29l1.25-1.25a2 2 0 0 1 2.11-.45c.85.27 1.73.47 2.63.59A2 2 0 0 1 22 16.92Z" />
-          </svg>
-          <p class="font-poppins text-[26px] font-bold leading-none">123 456 789</p>
-        </div>
-        <div class="mt-8 flex items-center gap-6">
-          <svg class="size-9 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="14" rx="2" />
-            <path d="m3 7 9 6 9-6" />
-          </svg>
-          <a href="mailto:biuro@lyneodata.com" class="font-poppins text-[26px] font-bold leading-none">biuro@lyneodata.com</a>
-        </div>
-      </div>
-
-      <div class="border-l border-white/35 pl-10 lg:pl-14">
-        <div class="flex items-center gap-6">
-          <svg class="size-10 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          <p class="font-poppins text-[25px] font-bold leading-tight">Aenean facilisis massa</p>
-        </div>
-      </div>
-
-      <img src="/assets/home/logo.png" alt="Lyneodata" class="w-[260px] justify-self-start lg:w-[320px] lg:justify-self-end" />
-    </div>
-  </footer>
+  <SiteFooter id="kontakt" />
 </main>

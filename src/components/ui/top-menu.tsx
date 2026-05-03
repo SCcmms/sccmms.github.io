@@ -1,4 +1,4 @@
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "./navigation-menu";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "./navigation-menu";
 import { Separator } from "./separator";
 
 export function TopMenu() {
@@ -7,27 +7,11 @@ return (
       <NavigationMenu>
         <NavigationMenuList>
             <NavigationMenuItem>
-                <NavigationMenuLink>Nasza Misja</NavigationMenuLink>
+                <NavigationMenuLink href="/o-nas/">Nasza misja</NavigationMenuLink>
             </NavigationMenuItem>
             <Separator className="w-16! " />
             <NavigationMenuItem>
-                <NavigationMenuLink>Projekty</NavigationMenuLink>
-            </NavigationMenuItem>
-            <Separator className="w-16!" />
-            <NavigationMenuItem>
-                <NavigationMenuLink>Technologia</NavigationMenuLink>
-            </NavigationMenuItem>
-            <Separator className="w-16!" />
-            <NavigationMenuItem>
-                <NavigationMenuLink>Nasz zespół</NavigationMenuLink>
-            </NavigationMenuItem>
-            <Separator className="w-16!" />
-            <NavigationMenuItem>
-                <NavigationMenuLink>Kontakt</NavigationMenuLink>
-            </NavigationMenuItem>
-            <Separator className="w-16!" />
-            <NavigationMenuItem>
-                <NavigationMenuLink>PL</NavigationMenuLink>
+                <NavigationMenuLink href="/technologia/">Technologia</NavigationMenuLink>
             </NavigationMenuItem>
         </NavigationMenuList>
         </NavigationMenu>
