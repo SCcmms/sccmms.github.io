@@ -1,8 +1,11 @@
 ---
 import Technology from "../components/Technology.astro";
 import Main from "../layouts/main.astro";
+import { pageMetadata } from "../data/site";
+
+const page = pageMetadata.technology;
 ---
 
-<Main title="Technology">
+<Main title={page.title} description={page.description} path={page.path} image={page.image}>
   <Technology />
 </Main>

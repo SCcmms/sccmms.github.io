@@ -1,8 +1,11 @@
 ---
 import About from "../components/About.astro";
 import Main from "../layouts/main.astro";
+import { pageMetadata } from "../data/site";
+
+const page = pageMetadata.about;
 ---
 
-<Main title="Our Mission">
+<Main title={page.title} description={page.description} path={page.path} image={page.image}>
   <About />
 </Main>

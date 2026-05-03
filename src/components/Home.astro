@@ -4,9 +4,12 @@ import CtaLink from "./CtaLink.astro";
 import SiteHeader from "./SiteHeader.astro";
 import SiteFooter from "./SiteFooter.astro";
 import { capabilities, workSteps } from "../data/home";
+import { contact } from "../data/site";
+
+const contactHref = `mailto:${contact.email}`;
 ---
 
-<main class="min-h-screen overflow-hidden bg-[#020707] text-white">
+<main class="min-h-screen overflow-hidden bg-surface-night text-white">
   <section
     id="hero"
     class="relative flex min-h-screen flex-col bg-black/40 bg-[url('/assets/home/hero-bg-figma.png')] bg-cover bg-center bg-blend-darken"
@@ -22,8 +25,8 @@ import { capabilities, workSteps } from "../data/home";
         The voice of<br />manufacturing<br />data
       </h1>
       <a
-        href="/o-nas"
-        class="mt-8 inline-flex h-[60px] w-[240px] items-center justify-center rounded-md bg-primary font-poppins text-[24px] font-semibold leading-none text-white transition-colors hover:bg-[#367fac] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
+        href="/o-nas/"
+        class="mt-8 inline-flex h-[60px] w-[240px] items-center justify-center rounded-md bg-primary font-poppins text-[24px] font-semibold leading-none text-white transition-colors hover:bg-brand-primary-hover focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
       >
         Więcej o nas
       </a>
@@ -36,7 +39,7 @@ import { capabilities, workSteps } from "../data/home";
 
   <section
     id="misja"
-    class="relative overflow-hidden bg-[#020c0d] py-24 lg:min-h-[1080px] lg:py-[135px]"
+    class="relative overflow-hidden bg-surface-deep py-24 lg:min-h-[1080px] lg:py-[135px]"
   >
     <img
       src="/assets/home/services-texture.png"
@@ -55,8 +58,8 @@ import { capabilities, workSteps } from "../data/home";
               <h3 class="max-w-[390px] font-poppins text-[28px] font-semibold uppercase leading-tight tracking-[0.05em] text-primary xl:text-[36px] xl:leading-[1.2]">
                 {capability}
               </h3>
-              <a href="/technologia" class="group mt-8 flex items-center gap-5 font-inter text-[14px] font-semibold text-white">
-                <span class="flex size-[50px] items-center justify-center rounded-full bg-primary text-white transition-colors group-hover:bg-[#367fac]">
+              <a href="/technologia/" class="group mt-8 flex items-center gap-5 font-inter text-[14px] font-semibold text-white">
+                <span class="flex size-[50px] items-center justify-center rounded-full bg-primary text-white transition-colors group-hover:bg-brand-primary-hover">
                   <span class="ml-0.5 text-[18px]" aria-hidden="true">›</span>
                 </span>
                 <span>Więcej</span>
@@ -74,7 +77,7 @@ import { capabilities, workSteps } from "../data/home";
             <p class="text-base leading-6  md:text-[20px]">Chcesz się</p>
             <p class="text-2xl leading-[1.1] tracking-[1.5px] text-white md:text-[30px] md:leading-[35px]">skontaktować?</p>
           </div>
-          <CtaLink href="mailto:biuro@lyneodata.com" label="Wyślij wiadomość" class="gap-4 text-base font-semibold tracking-[1px] md:text-[20px]" />
+          <CtaLink href={contactHref} label="Wyślij wiadomość" class="text-base font-semibold tracking-[1px] md:text-[20px]" />
         </div>
       </div>
     </Container>
@@ -87,22 +90,22 @@ import { capabilities, workSteps } from "../data/home";
     <div class="absolute inset-0 bg-gradient-to-r from-white via-white/82 to-white/5"></div>
     <Container class="relative flex min-h-[920px] items-center py-24">
       <div class="max-w-[660px]">
-        <h2 class="font-poppins text-5xl font-semibold leading-tight text-[#2c2c2c] md:text-[64px] md:leading-[1.2]">
+        <h2 class="font-poppins text-5xl font-semibold leading-tight text-ink md:text-[64px] md:leading-[1.2]">
           <span class="block text-primary">Lyneodata</span>
           <span class="flex items-center gap-8">
             Platform
-            <span class="hidden h-px w-[180px] bg-[#2c2c2c]/45 sm:block" aria-hidden="true"></span>
+            <span class="hidden h-px w-[180px] bg-ink/45 sm:block" aria-hidden="true"></span>
           </span>
         </h2>
-        <p class="mt-8 font-poppins text-xl font-semibold leading-[1.42] text-[#2c2c2c] md:text-[24px]">
+        <p class="mt-8 font-poppins text-xl font-semibold leading-[1.42] text-ink md:text-[24px]">
           LyneoData Platform tworzy jedno, spójne źródło wiedzy o procesach produkcyjnych, wspierając świadome decyzje operacyjne, optymalizację oraz rozwój rozwiązań predykcyjnych.
         </p>
-        <CtaLink href="/technologia/" label="Poznaj naszą technologię" divider="dark" class="mt-12 font-poppins text-[18px] font-semibold text-[#2c2c2c]" />
+        <CtaLink href="/technologia/" label="Poznaj naszą technologię" divider="dark" class="mt-12 font-poppins text-[18px] font-semibold text-ink" />
       </div>
     </Container>
   </section>
 
-  <section id="projekty" class="relative overflow-hidden bg-[#031313] py-24 lg:min-h-[920px] lg:py-0">
+  <section id="projekty" class="relative overflow-hidden bg-surface-forest py-24 lg:min-h-[920px] lg:py-0">
     <img
       src="/assets/home/services-texture.png"
       alt=""
@@ -124,7 +127,7 @@ import { capabilities, workSteps } from "../data/home";
       <div class="max-w-[660px]">
         <h2 class="font-poppins text-5xl font-semibold leading-tight md:text-[64px] md:leading-[1.1]">
           <span class="block text-white">Poznaj nasze</span>
-          <span class="flex items-center gap-8 text-[#e39b43]">
+          <span class="flex items-center gap-8 text-brand-amber">
             projekty
             <span class="hidden h-px w-[180px] bg-white/45 sm:block" aria-hidden="true"></span>
           </span>
@@ -132,12 +135,12 @@ import { capabilities, workSteps } from "../data/home";
         <p class="mt-8 font-poppins text-xl font-semibold leading-[1.42] text-white md:text-[24px]">
           LyneoData Platform tworzy jedno, spójne źródło wiedzy o procesach produkcyjnych, wspierając świadome decyzje operacyjne, optymalizację oraz rozwój rozwiązań predykcyjnych.
         </p>
-        <CtaLink href="mailto:biuro@lyneodata.com" label="Poznaj projekty" divider="light" class="mt-12 font-poppins text-[18px] font-semibold text-white" />
+        <CtaLink href={contactHref} label="Poznaj projekty" divider="light" class="mt-12 font-poppins text-[18px] font-semibold text-white" />
       </div>
     </Container>
   </section>
 
-  <section id="realizacje" class="bg-white py-20 text-[#282828] lg:py-0">
+  <section id="realizacje" class="bg-white py-20 text-ink lg:py-0">
     <Container>
       {
         workSteps.map((step) => (
@@ -150,17 +153,17 @@ import { capabilities, workSteps } from "../data/home";
             <div class="work-copy max-w-[680px]">
               <div class="font-poppins font-semibold leading-none">
                 <p class="text-[32px] leading-tight text-primary md:text-[40px]">{step.eyebrow}</p>
-                <h2 class="mt-1 text-5xl uppercase leading-[1.05] tracking-[0.05em] text-[#282828] md:text-[60px]">
+                <h2 class="mt-1 text-5xl uppercase leading-[1.05] tracking-[0.05em] text-ink md:text-[60px]">
                   {step.title.map((line) => (
                     <span class="block">{line}</span>
                   ))}
                 </h2>
               </div>
-              <div class="mt-8 h-px w-full max-w-[480px] bg-[#282828]/45"></div>
-              <p class="mt-8 max-w-[560px] font-inter text-[18px] font-semibold leading-[1.2] tracking-[-0.01em] text-[#282828]">
+              <div class="mt-8 h-px w-full max-w-[480px] bg-ink/45"></div>
+              <p class="mt-8 max-w-[560px] font-inter text-[18px] font-semibold leading-[1.2] tracking-[-0.01em] text-ink">
                 {step.body}
               </p>
-              <CtaLink href="/technologia" label="Więcej" class="mt-10 font-inter text-[20px] font-semibold tracking-[0.05em] text-[#282828]" />
+              <CtaLink href="/technologia/" label="Więcej" class="mt-10 font-inter text-[20px] font-semibold tracking-[0.05em] text-ink" />
             </div>
             <div class="work-image">
               <img src={step.image} alt={step.imageAlt} class="aspect-[1.25] w-full rounded-[8px] object-cover shadow-sm" />

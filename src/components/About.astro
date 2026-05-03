@@ -5,7 +5,7 @@ import SiteFooter from "./SiteFooter.astro";
 import { challenges } from "../data/about";
 ---
 
-<main class="overflow-hidden bg-white font-poppins text-[#2b2b2b]">
+<main class="overflow-hidden bg-white font-poppins text-ink">
   <PageHero
     backgroundImage="/assets/about/hero.png"
     currentPath="/o-nas/"
@@ -30,9 +30,9 @@ import { challenges } from "../data/about";
       <div class="max-w-[590px] lg:ml-[160px]">
         <div class="flex items-center gap-8">
           <h2 class="text-[48px] font-bold leading-none text-primary md:text-[64px]">Wierzymy, że...</h2>
-          <span class="hidden h-px w-[150px] bg-[#2b2b2b]/20 lg:block" aria-hidden="true"></span>
+          <span class="hidden h-px w-[150px] bg-ink/20 lg:block" aria-hidden="true"></span>
         </div>
-        <div class="mt-12 flex flex-col gap-10 text-[22px] font-bold leading-[1.28] text-[#2d2d2d] md:text-[27px]">
+        <div class="mt-12 flex flex-col gap-10 text-[22px] font-bold leading-[1.28] text-ink md:text-[27px]">
           <p>
             ...dobrze zaplanowana cyfryzacja - oparta na inteligentnym gromadzeniu, integracji i analizie danych - umożliwia przejście od reaktywnego zarządzania do podejścia predykcyjnego.
           </p>
@@ -45,15 +45,15 @@ import { challenges } from "../data/about";
   </section>
 
   <section
-    class="relative min-h-[720px] overflow-hidden bg-[#0b2029] bg-[url('/assets/about/industry.png')] bg-[length:100%_100%] bg-center bg-no-repeat text-white lg:min-h-[747px]"
+    class="relative min-h-[720px] overflow-hidden bg-surface-industrial bg-[url('/assets/about/industry.png')] bg-[length:100%_100%] bg-center bg-no-repeat text-white lg:min-h-[747px]"
   >
-    <div class="absolute inset-y-0 right-0 w-full bg-[#0d2530]/20 md:w-[55%]"></div>
+    <div class="absolute inset-y-0 right-0 w-full bg-surface-industrial-overlay/20 md:w-[55%]"></div>
 
     <Container class="relative grid min-h-[720px] items-center gap-12 py-20 md:grid-cols-2 lg:min-h-[747px]">
       <div aria-hidden="true"></div>
       <div class="max-w-[640px] md:pl-10">
         <div class="flex items-start gap-16">
-          <h2 class="text-[48px] font-bold leading-[1.16] text-[#ef7b2c] md:text-[64px]">
+          <h2 class="text-[48px] font-bold leading-[1.16] text-brand-orange md:text-[64px]">
             Wyzwania<br />współczesnego<br />przemysłu
           </h2>
           <span class="mt-9 hidden h-px w-[240px] bg-white/80 xl:block" aria-hidden="true"></span>
@@ -65,7 +65,7 @@ import { challenges } from "../data/about";
     </Container>
   </section>
 
-  <section class="bg-white px-6 py-24 text-[#2d2d2d] sm:px-10 lg:px-20 lg:pb-[190px] lg:pt-[270px]">
+  <section class="bg-white px-6 py-24 text-ink sm:px-10 lg:px-20 lg:pb-[190px] lg:pt-[270px]">
     <Container max="content" padded={false}>
       <h2 class="max-w-[1290px] text-[44px] font-bold leading-[1.12] md:text-[64px] lg:text-[72px]">
         <span class="text-primary">Najczęstsze wyzwania,</span> z jakimi mierzy się współczesny przemysł, <span class="text-primary">to:</span>
@@ -77,10 +77,10 @@ import { challenges } from "../data/about";
             <article>
               <p class="text-[26px] font-bold leading-[1.25] md:text-[32px]">
                 {challenge.map((part) => (
-                  <span class={part.accent ? "text-[#ef7b2c]" : undefined}>{part.text}</span>
+                  <span class={part.accent ? "text-brand-orange" : undefined}>{part.text}</span>
                 ))}
               </p>
-              <div class="mt-9 h-px w-[240px] bg-[#2d2d2d]/45"></div>
+              <div class="mt-9 h-px w-[240px] bg-ink/45"></div>
             </article>
           ))
         }

@@ -1,8 +1,11 @@
 ---
 import Home from "../components/Home.astro";
 import Main from "../layouts/main.astro";
+import { pageMetadata } from "../data/site";
+
+const page = pageMetadata.home;
 ---
 
-<Main title="Lyneo Data">
+<Main title={page.title} description={page.description} path={page.path} image={page.image}>
     <Home />
 </Main>
