@@ -1,0 +1,223 @@
+---
+const navItems = [
+  { label: "Nasza misja", href: "/o-nas/" },
+  { label: "Projekty", href: "/#projekty" },
+  { label: "Technologia", href: "/technologia/" },
+  { label: "Nasz zespół", href: "/#zespol" },
+  { label: "Kontakt", href: "/#kontakt" },
+];
+
+const challenges = [
+  [
+    { text: "Nieplanowane przestoje", accent: true },
+    { text: " i awarie generujące znaczące koszty" },
+  ],
+  [
+    { text: "Długi czas przezbrojeń", accent: true },
+    { text: " przy zmiennej i krótkoseryjnej produkcji" },
+  ],
+  [
+    { text: "Rozproszone, niepołączone " },
+    { text: "źródła danych", accent: true },
+    { text: " i brak spójnego obrazu procesów" },
+  ],
+  [
+    { text: "Ograniczony dostęp " },
+    { text: "do danych historycznych", accent: true },
+    { text: " w formie wspierającej podejmowanie decyzji" },
+  ],
+  [
+    { text: "Trudności w " },
+    { text: "utrzymaniu stabilnej jakości", accent: true },
+    { text: " przy częstych korektach procesów" },
+  ],
+  [
+    { text: "Procesy, które są " },
+    { text: "wydajne operacyjnie", accent: true },
+    { text: ", ale nie są " },
+    { text: "faktycznie zoptymalizowane", accent: true },
+  ],
+  [
+    { text: "Problemy z wykorzystaniem " },
+    { text: "wiedzy eksperckiej w codziennej pracy operacyjnej", accent: true },
+    { text: " oraz wyzwania kadrowe" },
+  ],
+  [
+    { text: "Wysokie koszty i złożoność", accent: true },
+    { text: " wdrożeń rozwiązań opartych o AI i Machine Learning" },
+  ],
+];
+---
+
+<main class="overflow-hidden bg-white font-poppins text-[#2b2b2b]">
+  <section
+    class="relative min-h-[720px] overflow-hidden bg-[#030707] bg-[url('/assets/about/hero.png')] bg-[length:100%_100%] bg-center bg-no-repeat text-white lg:min-h-[810px]"
+    aria-labelledby="about-title"
+  >
+    <div class="absolute inset-0 bg-black/5"></div>
+
+    <header
+      class="relative z-20 mx-auto flex w-full max-w-[1760px] flex-col gap-8 px-6 pt-8 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:px-20 lg:pt-[63px]"
+    >
+      <a href="/" aria-label="Lyneodata home">
+        <img
+          src="/assets/home/logo.png"
+          alt="Lyneodata"
+          class="h-auto w-[210px] sm:w-[260px] lg:w-[322px]"
+        />
+      </a>
+
+      <nav aria-label="Main navigation" class="hidden items-center gap-5 pt-[18px] lg:flex">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="group flex items-center gap-5 font-inter text-[20px] font-semibold leading-none tracking-[1px] text-white transition-colors hover:text-primary"
+              aria-current={item.href === "/o-nas/" ? "page" : undefined}
+            >
+              <span>{item.label}</span>
+              <span class="h-px w-[50px] bg-white/55 transition-colors group-hover:bg-primary" aria-hidden="true" />
+            </a>
+          ))
+        }
+        <span class="font-inter text-[20px] font-semibold leading-none tracking-[1px]">PL</span>
+      </nav>
+
+      <nav aria-label="Mobile navigation" class="flex flex-wrap gap-x-5 gap-y-3 font-inter text-sm font-semibold uppercase tracking-[0.08em] text-white/90 lg:hidden">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    </header>
+
+    <div class="relative z-10 mx-auto flex min-h-[500px] w-full max-w-[1380px] flex-col items-center justify-center px-6 pb-20 pt-20 text-center lg:min-h-[620px] lg:pt-12">
+      <h1
+        id="about-title"
+        aria-label="Our Mission"
+        class="text-[48px] font-bold uppercase leading-none tracking-[0.09em] text-white sm:text-6xl md:text-7xl xl:text-[92px]"
+      >
+        Nasza <span class="text-primary">misja</span>
+      </h1>
+      <p class="mt-8 max-w-[1120px] text-[24px] font-bold leading-[1.18] text-white md:text-[34px]">
+        W LyneoData pomagamy firmom przemysłowym uzyskać pełny, rzetelny wgląd w ich procesy produkcyjne w oparciu o rzeczywiste dane generowane przez biznes.
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="relative min-h-[760px] overflow-hidden bg-white bg-[url('/assets/about/belief.png')] bg-[length:100%_100%] bg-center bg-no-repeat lg:min-h-[811px]"
+  >
+    <div class="absolute inset-y-0 left-0 w-full bg-white md:w-[47%]"></div>
+    <div class="absolute inset-y-0 left-[34%] hidden w-[28%] bg-gradient-to-r from-white via-white/85 to-white/0 md:block"></div>
+
+    <div class="relative mx-auto flex min-h-[760px] w-full max-w-[1760px] items-center px-6 py-20 sm:px-10 lg:min-h-[811px] lg:px-20">
+      <div class="max-w-[590px] lg:ml-[160px]">
+        <div class="flex items-center gap-8">
+          <h2 class="text-[48px] font-bold leading-none text-primary md:text-[64px]">Wierzymy, że...</h2>
+          <span class="hidden h-px w-[150px] bg-[#2b2b2b]/20 lg:block" aria-hidden="true"></span>
+        </div>
+        <div class="mt-12 space-y-10 text-[22px] font-bold leading-[1.28] text-[#2d2d2d] md:text-[27px]">
+          <p>
+            ...dobrze zaplanowana cyfryzacja - oparta na inteligentnym gromadzeniu, integracji i analizie danych - umożliwia przejście od reaktywnego zarządzania do podejścia predykcyjnego.
+          </p>
+          <p>
+            To właśnie dane stanowią fundament nowoczesnej, odpornej i konkurencyjnej produkcji.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="relative min-h-[720px] overflow-hidden bg-[#0b2029] bg-[url('/assets/about/industry.png')] bg-[length:100%_100%] bg-center bg-no-repeat text-white lg:min-h-[747px]"
+  >
+    <div class="absolute inset-y-0 right-0 w-full bg-[#0d2530]/20 md:w-[55%]"></div>
+
+    <div class="relative mx-auto grid min-h-[720px] w-full max-w-[1760px] items-center gap-12 px-6 py-20 sm:px-10 md:grid-cols-2 lg:min-h-[747px] lg:px-20">
+      <div aria-hidden="true"></div>
+      <div class="max-w-[640px] md:pl-10">
+        <div class="flex items-start gap-16">
+          <h2 class="text-[48px] font-bold leading-[1.16] text-[#ef7b2c] md:text-[64px]">
+            Wyzwania<br />współczesnego<br />przemysłu
+          </h2>
+          <span class="mt-9 hidden h-px w-[240px] bg-white/80 xl:block" aria-hidden="true"></span>
+        </div>
+        <p class="mt-9 text-[22px] font-bold leading-[1.32] text-white md:text-[27px]">
+          Zakłady produkcyjne funkcjonują dziś w środowisku rosnącej presji operacyjnej. Wysokie koszty, ograniczona dostępność wykwalifikowanej kadry, rosnące wymagania jakościowe oraz intensywna konkurencja sprawiają, że brak optymalizacji bezpośrednio przekłada się na straty.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-6 py-24 text-[#2d2d2d] sm:px-10 lg:px-20 lg:pb-[190px] lg:pt-[270px]">
+    <div class="mx-auto w-full max-w-[1440px]">
+      <h2 class="max-w-[1290px] text-[44px] font-bold leading-[1.12] md:text-[64px] lg:text-[72px]">
+        <span class="text-primary">Najczęstsze wyzwania,</span> z jakimi mierzy się współczesny przemysł, <span class="text-primary">to:</span>
+      </h2>
+
+      <div class="mt-24 grid gap-x-[190px] gap-y-20 md:grid-cols-2 lg:mt-[104px]">
+        {
+          challenges.map((challenge) => (
+            <article>
+              <p class="text-[26px] font-bold leading-[1.25] md:text-[32px]">
+                {challenge.map((part) => (
+                  <span class={part.accent ? "text-[#ef7b2c]" : undefined}>{part.text}</span>
+                ))}
+              </p>
+              <div class="mt-9 h-px w-[240px] bg-[#2d2d2d]/45"></div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <footer class="relative overflow-hidden bg-[#030f10] py-16 text-white lg:min-h-[341px]">
+    <img
+      src="/assets/about/footer.png"
+      alt=""
+      class="absolute inset-0 size-full object-cover opacity-35 mix-blend-screen"
+    />
+    <div class="absolute inset-0 bg-[#020707]/94"></div>
+
+    <div class="relative mx-auto grid w-full max-w-[1760px] gap-12 px-6 sm:px-10 lg:grid-cols-[0.9fr_1fr_0.85fr] lg:items-center lg:px-20">
+      <div class="border-l border-white/35 pl-10 lg:pl-14">
+        <div class="flex items-center gap-6">
+          <svg class="size-9 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.59 2.63a2 2 0 0 1-.45 2.11L8 9.71a16 16 0 0 0 6.29 6.29l1.25-1.25a2 2 0 0 1 2.11-.45c.85.27 1.73.47 2.63.59A2 2 0 0 1 22 16.92Z" />
+          </svg>
+          <p class="font-poppins text-[26px] font-bold leading-none">+48 123 456 789</p>
+        </div>
+        <div class="mt-8 flex items-center gap-6">
+          <svg class="size-9 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="m3 7 9 6 9-6" />
+          </svg>
+          <a href="mailto:biuro@lyneodata.com" class="font-poppins text-[26px] font-bold leading-none">biuro@lyneodata.com</a>
+        </div>
+      </div>
+
+      <div class="border-l border-white/35 pl-10 lg:pl-14">
+        <div class="flex items-center gap-6">
+          <svg class="size-10 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <p class="font-poppins text-[25px] font-bold leading-tight">ul. Szlak 77 / 222, 31-153 Kraków</p>
+        </div>
+        <div class="mt-7 flex items-center gap-6">
+          <svg class="size-9 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="18" cy="5" r="3" />
+            <circle cx="6" cy="12" r="3" />
+            <circle cx="18" cy="19" r="3" />
+            <path d="m8.59 13.51 6.83 3.98" />
+            <path d="m15.41 6.51-6.82 3.98" />
+          </svg>
+          <span class="size-8 rounded-md bg-white"></span>
+          <img src="/assets/home/social-fb.svg" alt="Facebook" class="size-8" />
+          <span class="flex size-8 items-center justify-center bg-white text-[23px] font-bold leading-none text-[#151515]">in</span>
+        </div>
+      </div>
+
+      <img src="/assets/home/logo.png" alt="Lyneodata" class="w-[260px] justify-self-start lg:w-[320px] lg:justify-self-end" />
+    </div>
+  </footer>
+</main>
