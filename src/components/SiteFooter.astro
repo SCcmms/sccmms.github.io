@@ -9,21 +9,39 @@ interface Props {
 const { id = "stopka" } = Astro.props;
 ---
 
-<footer class="relative overflow-hidden bg-surface-footer py-16 text-white lg:min-h-[340px]" id={id}>
+<footer
+  class="relative overflow-hidden bg-surface-footer py-16 text-white lg:min-h-[340px]"
+  id={id}
+>
   <img
     src="/assets/home/footer-texture.png"
     alt=""
     class="absolute inset-0 size-full object-cover opacity-30 mix-blend-screen"
   />
-  <Container class="relative grid gap-12 lg:grid-cols-[1fr_1.15fr_0.8fr] lg:items-center">
-    <div class="border-l border-white/35 pl-14 font-poppins text-[27px] font-semibold leading-[1.1]">
-      <a href={`mailto:${contact.email}`} class="mt-8 block text-[29px] tracking-[0.002em] transition-colors hover:text-primary">
+  <Container
+    class="relative grid gap-12 lg:grid-cols-[1fr_1.15fr_0.8fr] lg:items-center"
+  >
+    <div
+      class="border-l border-white/35 pl-14 font-poppins text-[27px] font-semibold leading-[1.1]"
+    >
+      <a
+        href={`mailto:${contact.email}`}
+        class="mt-8 block text-[29px] tracking-[0.002em] transition-colors hover:text-primary"
+      >
         {contact.email}
       </a>
     </div>
     <div class="border-l border-white/35 pl-14">
-      <address class="mt-8 font-poppins text-[27px] font-semibold not-italic leading-[1.1]">{contact.address}</address>
+      <address
+        class="mt-8 font-poppins text-[27px] font-semibold not-italic leading-[1.1]"
+      >
+        {contact.address}
+      </address>
     </div>
-    <img src="/assets/home/logo.png" alt="Lyneodata" class="w-[260px] justify-self-start lg:w-[320px] lg:justify-self-end" />
+    <img
+      src="/assets/home/logo.png"
+      alt="Lyneodata"
+      class="w-[260px] justify-self-start lg:w-[320px] lg:justify-self-end"
+    />
   </Container>
 </footer>

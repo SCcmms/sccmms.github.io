@@ -1,0 +1,7 @@
+dist/
+.astro/
+node_modules/
+.idea/
+pnpm-lock.yaml
+*.log
+.DS_Store

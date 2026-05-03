@@ -4,13 +4,29 @@ This document provides a set of guidelines for AI agents and developers working 
 
 ## Core Principles
 
-*   **Leverage shadcn/ui:** This project uses shadcn/ui. Please use its components whenever possible. You can find them in `src/components`. If you need to create a new base component, you must first check the shadcn registry for appropriate code.
-*   **Embrace Tailwind CSS:** All styling should be done using Tailwind CSS utility classes. Avoid writing custom CSS.
-*   **Follow the Astro way:** Build pages and components using the Astro framework. Keep an eye on the existing structure in `src/pages` and `src/components`.
-*   **TypeScript is key:** The project is set up with TypeScript. Please use it to ensure type safety.
-*   **Keep it clean:** Strive for clean, readable, and maintainable code.
-*   **Verify your changes:** Run `pnpm run build` to check for errors before finishing your work.
+- **Follow the Astro way:** Build static UI with Astro components. Do not add a client framework or hydrated island unless the feature truly needs browser-side interactivity.
+- **Use Tailwind CSS:** Prefer Tailwind utilities and project tokens from `src/styles/global.css`. Avoid custom CSS unless it belongs in the shared token/base layer.
+- **Keep content editable:** Put reusable copy, navigation, contact details, and page metadata in `src/data` rather than burying it inside large page sections.
+- **Abstract selectively:** Use small shared primitives for repeated layout/CTA patterns. Keep one-off art-directed sections local when extracting them would add more ceremony than clarity.
+- **Use TypeScript:** Keep exported data typed so copy and metadata changes fail early when fields are missing.
+- **Verify your changes:** Run `pnpm run verify` before finishing work.
+
+## Source Layout
+
+- `src/pages/` contains route entrypoints.
+- `src/layouts/main.astro` owns the shared document shell and SEO metadata.
+- `src/components/` contains Astro-only UI components.
+- `src/data/` contains typed site and page data.
+- `src/styles/global.css` contains Tailwind imports, design tokens, and base styles.
+
+## Commands
+
+- `pnpm run dev` starts local development.
+- `pnpm run check` runs Astro/TypeScript checks.
+- `pnpm run format` formats source and docs.
+- `pnpm run build` builds the static site.
+- `pnpm run verify` runs the full handoff gate.
 
 ## Deployment
 
-This is a static website that is deployed to GitHub Pages. The site is built using `pnpm run build`.
+This is a static website deployed to GitHub Pages from `main`. The deployment workflow runs `pnpm run verify` before publishing `dist/`.

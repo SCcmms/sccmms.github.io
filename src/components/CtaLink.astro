@@ -11,13 +11,18 @@ const dividerClass = divider === "dark" ? "bg-ink/45" : "bg-white/45";
 ---
 
 <a href={href} class:list={["group inline-flex items-center gap-5", className]}>
-  <span class="flex size-[50px] items-center justify-center rounded-full bg-primary text-white transition-colors group-hover:bg-brand-primary-hover">
+  <span
+    class="flex size-[50px] items-center justify-center rounded-full bg-primary text-white transition-colors group-hover:bg-brand-primary-hover"
+  >
     <span class="ml-0.5 text-[18px]" aria-hidden="true">›</span>
   </span>
   <span>{label}</span>
   {
     divider && (
-      <span class:list={["hidden h-px w-[180px] sm:block", dividerClass]} aria-hidden="true"></span>
+      <span
+        class:list={["hidden h-px w-[180px] sm:block", dividerClass]}
+        aria-hidden="true"
+      />
     )
   }
 </a>

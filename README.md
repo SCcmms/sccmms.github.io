@@ -1,13 +1,50 @@
-# Astro with Tailwind
+# LyneoData Landing Page
+
+Static landing page for LyneoData, built with Astro and Tailwind CSS and deployed to GitHub Pages.
+
+## Requirements
+
+- Node.js 22 or newer
+- pnpm 10.13.1, managed through `corepack`
+
+## Local Development
 
 ```sh
-pnpm create astro@latest -- --template with-tailwindcss
+corepack enable
+pnpm install
+pnpm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/with-tailwindcss/devcontainer.json)
+Useful commands:
 
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
+- `pnpm run dev` starts the local Astro dev server.
+- `pnpm run build` builds the static site into `dist/`.
+- `pnpm run preview` serves the built site locally.
+- `pnpm run check` runs Astro/TypeScript checks.
+- `pnpm run format` formats source and docs.
+- `pnpm run verify` runs checks, formatting validation, and build.
 
-For complete setup instructions, please see our [Tailwind Integration Guide](https://docs.astro.build/en/guides/integrations-guide/tailwind).
+## Project Structure
+
+- `src/pages/` defines the three public routes.
+- `src/layouts/main.astro` owns shared HTML metadata and social tags.
+- `src/components/` contains Astro components used by the pages.
+- `src/data/` contains typed navigation, contact, page metadata, and section copy.
+- `src/styles/global.css` defines Tailwind imports, design tokens, and base styles.
+- `public/assets/` contains static image assets served as-is.
+
+## Editing Guidelines
+
+Prefer Astro components for static UI. Add client-side JavaScript only when a feature truly needs browser interactivity.
+
+Keep repeated content in `src/data` and repeated layout primitives in `src/components`. For one-off art-directed sections, local Tailwind utility classes are fine.
+
+Before handing off a change, run:
+
+```sh
+pnpm run verify
+```
+
+## Deployment
+
+Pushing to `main` runs the GitHub Pages workflow. The workflow installs dependencies, runs `pnpm run verify`, uploads `dist/`, and deploys the generated static site.
