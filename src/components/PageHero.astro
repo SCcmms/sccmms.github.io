@@ -1,0 +1,49 @@
+---
+import Container from "./Container.astro";
+import SiteHeader from "./SiteHeader.astro";
+
+interface Props {
+  backgroundImage: string;
+  currentPath: string;
+  titleId: string;
+  ariaLabel?: string;
+  overlayClass?: string;
+  headingClass?: string;
+}
+
+const {
+  backgroundImage,
+  currentPath,
+  titleId,
+  ariaLabel,
+  overlayClass = "bg-black/10",
+  headingClass = "text-[44px] tracking-[0.08em] sm:text-6xl md:text-7xl xl:text-[90px]",
+} = Astro.props;
+---
+
+<section
+  class="relative min-h-[720px] overflow-hidden bg-[#030707] bg-[length:100%_100%] bg-center bg-no-repeat text-white lg:min-h-[810px]"
+  style={`background-image: url('${backgroundImage}')`}
+  aria-labelledby={titleId}
+>
+  <div class:list={["absolute inset-0", overlayClass]}></div>
+
+  <SiteHeader currentPath={currentPath} />
+
+  <Container
+    max="pageHero"
+    class="relative z-10 flex min-h-[500px] flex-col items-center justify-center pb-20 pt-20 text-center lg:min-h-[620px] lg:pt-12"
+  >
+    <h1
+      id={titleId}
+      aria-label={ariaLabel}
+      class:list={[
+        "font-bold uppercase leading-none text-white",
+        headingClass,
+      ]}
+    >
+      <slot />
+    </h1>
+    <slot name="subtitle" />
+  </Container>
+</section>

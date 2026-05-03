@@ -1,51 +1,21 @@
 ---
-import SiteHeader from "./SiteHeader.astro";
+import Container from "./Container.astro";
+import PageHero from "./PageHero.astro";
 import SiteFooter from "./SiteFooter.astro";
-
-const integrations = [
-  "systemy SCADA / DCS",
-  "systemy klasy ERP, MES oraz CMMS",
-  "dokumentację techniczną i procesową",
-  "systemy diagnostyczne i monitoringu stanu technicznego",
-];
-
-const technologyCards = [
-  {
-    title: "Integracja danych",
-    body: "Łączy informacje z rozproszonych źródeł i porządkuje je w spójny model operacyjny.",
-  },
-  {
-    title: "Warstwa analityczna",
-    body: "Ułatwia analizę trendów, jakości, efektywności oraz przyczyn problemów w procesach.",
-  },
-  {
-    title: "Agentic AI",
-    body: "Zapewnia szybki dostęp do wiedzy zapisanej w dokumentacji, systemach i wynikach analiz.",
-  },
-];
+import { integrations, technologyCards } from "../data/technology";
 ---
 
 <main class="overflow-hidden bg-white font-poppins text-[#2d2d2d]">
-  <section
-    class="relative min-h-[720px] overflow-hidden bg-[#030707] bg-[url('/assets/technology/hero.png')] bg-[length:100%_100%] bg-center bg-no-repeat text-white lg:min-h-[810px]"
-    aria-labelledby="technology-title"
+  <PageHero
+    backgroundImage="/assets/technology/hero.png"
+    currentPath="/technologia/"
+    titleId="technology-title"
   >
-    <div class="absolute inset-0 bg-black/10"></div>
-
-    <SiteHeader currentPath="/technologia/" />
-
-    <div class="relative z-10 mx-auto flex min-h-[500px] w-full max-w-[1380px] flex-col items-center justify-center px-6 pb-20 pt-20 text-center lg:min-h-[620px] lg:pt-12">
-      <h1
-        id="technology-title"
-        class="text-[44px] font-bold uppercase leading-none tracking-[0.08em] text-white sm:text-6xl md:text-7xl xl:text-[90px]"
-      >
-        Lyneodata Platform
-      </h1>
-    </div>
-  </section>
+    Lyneodata Platform
+  </PageHero>
 
   <section class="relative overflow-hidden bg-white py-24 lg:min-h-[780px] lg:py-0">
-    <div class="mx-auto grid w-full max-w-[1760px] items-center gap-14 px-6 sm:px-10 lg:grid-cols-[0.78fr_1.22fr] lg:px-20">
+    <Container class="grid items-center gap-14 lg:grid-cols-[0.78fr_1.22fr]">
       <div class="relative z-10 max-w-[610px] lg:pl-[160px]">
         <div class="flex items-center gap-8">
           <h2 class="text-[52px] font-bold leading-[1.08] md:text-[66px]">
@@ -64,11 +34,11 @@ const technologyCards = [
         alt="Platforma LyneoData prezentowana na ekranie w hali produkcyjnej"
         class="relative z-10 w-full object-contain drop-shadow-2xl lg:mt-[-90px]"
       />
-    </div>
+    </Container>
   </section>
 
   <section class="bg-white pb-28 pt-10 lg:pb-[190px] lg:pt-0">
-    <div class="mx-auto grid w-full max-w-[1760px] items-center gap-14 px-6 sm:px-10 lg:grid-cols-[1fr_0.9fr] lg:px-20">
+    <Container class="grid items-center gap-14 lg:grid-cols-[1fr_0.9fr]">
       <img
         src="/assets/technology/data-desk.png"
         alt="Analityk pracujący przy ekranach z danymi produkcyjnymi"
@@ -84,7 +54,7 @@ const technologyCards = [
           <span class="hidden h-px w-[120px] bg-[#2d2d2d]/55 xl:block" aria-hidden="true"></span>
         </div>
 
-        <ul class="mt-14 space-y-4 text-[22px] font-bold leading-[1.28] md:text-[27px]">
+        <ul class="mt-14 flex flex-col gap-4 text-[22px] font-bold leading-[1.28] md:text-[27px]">
           {
             integrations.map((item) => (
               <li class="flex gap-8">
@@ -99,7 +69,7 @@ const technologyCards = [
           Dzięki temu LyneoData Platform tworzy jedno, spójne źródło wiedzy o procesach produkcyjnych, wspierając świadome decyzje operacyjne, optymalizację oraz rozwój rozwiązań predykcyjnych.
         </p>
       </div>
-    </div>
+    </Container>
   </section>
 
   <section class="bg-white px-6 pb-24 text-center sm:px-10 lg:pb-[170px]">
@@ -113,7 +83,7 @@ const technologyCards = [
 
   <section class="relative overflow-hidden bg-[#041016] py-24 text-white lg:py-[150px]">
     <div class="absolute inset-0 bg-gradient-to-r from-[#102c38] via-[#030707] to-black"></div>
-    <div class="relative mx-auto w-full max-w-[1760px] px-6 sm:px-10 lg:px-20">
+    <Container class="relative">
       <h2 class="text-center text-[42px] font-bold leading-[1.15] md:text-[64px]">
         LyneoData Platform - <span class="text-primary">technologia</span>
       </h2>
@@ -170,7 +140,7 @@ const technologyCards = [
           ))
         }
       </div>
-    </div>
+    </Container>
   </section>
 
   <SiteFooter id="kontakt" />

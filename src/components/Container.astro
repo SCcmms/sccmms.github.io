@@ -1,0 +1,21 @@
+---
+interface Props {
+  class?: string;
+  max?: "wide" | "homeHero" | "pageHero" | "content" | "none";
+  padded?: boolean;
+}
+
+const { class: className, max = "wide", padded = true } = Astro.props;
+
+const maxWidthClasses = {
+  wide: "max-w-[1760px]",
+  homeHero: "max-w-[1500px]",
+  pageHero: "max-w-[1380px]",
+  content: "max-w-[1440px]",
+  none: "",
+};
+---
+
+<div class:list={["mx-auto w-full", padded && "px-6 sm:px-10 lg:px-20", maxWidthClasses[max], className]}>
+  <slot />
+</div>

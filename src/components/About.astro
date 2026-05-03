@@ -1,71 +1,24 @@
 ---
-import SiteHeader from "./SiteHeader.astro";
+import Container from "./Container.astro";
+import PageHero from "./PageHero.astro";
 import SiteFooter from "./SiteFooter.astro";
-
-const challenges = [
-  [
-    { text: "Nieplanowane przestoje", accent: true },
-    { text: " i awarie generujące znaczące koszty" },
-  ],
-  [
-    { text: "Długi czas przezbrojeń", accent: true },
-    { text: " przy zmiennej i krótkoseryjnej produkcji" },
-  ],
-  [
-    { text: "Rozproszone, niepołączone " },
-    { text: "źródła danych", accent: true },
-    { text: " i brak spójnego obrazu procesów" },
-  ],
-  [
-    { text: "Ograniczony dostęp " },
-    { text: "do danych historycznych", accent: true },
-    { text: " w formie wspierającej podejmowanie decyzji" },
-  ],
-  [
-    { text: "Trudności w " },
-    { text: "utrzymaniu stabilnej jakości", accent: true },
-    { text: " przy częstych korektach procesów" },
-  ],
-  [
-    { text: "Procesy, które są " },
-    { text: "wydajne operacyjnie", accent: true },
-    { text: ", ale nie są " },
-    { text: "faktycznie zoptymalizowane", accent: true },
-  ],
-  [
-    { text: "Problemy z wykorzystaniem " },
-    { text: "wiedzy eksperckiej w codziennej pracy operacyjnej", accent: true },
-    { text: " oraz wyzwania kadrowe" },
-  ],
-  [
-    { text: "Wysokie koszty i złożoność", accent: true },
-    { text: " wdrożeń rozwiązań opartych o AI i Machine Learning" },
-  ],
-];
+import { challenges } from "../data/about";
 ---
 
 <main class="overflow-hidden bg-white font-poppins text-[#2b2b2b]">
-  <section
-    class="relative min-h-[720px] overflow-hidden bg-[#030707] bg-[url('/assets/about/hero.png')] bg-[length:100%_100%] bg-center bg-no-repeat text-white lg:min-h-[810px]"
-    aria-labelledby="about-title"
+  <PageHero
+    backgroundImage="/assets/about/hero.png"
+    currentPath="/o-nas/"
+    titleId="about-title"
+    ariaLabel="Our Mission"
+    overlayClass="bg-black/5"
+    headingClass="text-[48px] tracking-[0.09em] sm:text-6xl md:text-7xl xl:text-[92px]"
   >
-    <div class="absolute inset-0 bg-black/5"></div>
-
-    <SiteHeader currentPath="/o-nas/" />
-
-    <div class="relative z-10 mx-auto flex min-h-[500px] w-full max-w-[1380px] flex-col items-center justify-center px-6 pb-20 pt-20 text-center lg:min-h-[620px] lg:pt-12">
-      <h1
-        id="about-title"
-        aria-label="Our Mission"
-        class="text-[48px] font-bold uppercase leading-none tracking-[0.09em] text-white sm:text-6xl md:text-7xl xl:text-[92px]"
-      >
-        Nasza <span class="text-primary">misja</span>
-      </h1>
-      <p class="mt-8 max-w-[1120px] text-[24px] font-bold leading-[1.18] text-white md:text-[34px]">
-        W LyneoData pomagamy firmom przemysłowym uzyskać pełny, rzetelny wgląd w ich procesy produkcyjne w oparciu o rzeczywiste dane generowane przez biznes.
-      </p>
-    </div>
-  </section>
+    Nasza <span class="text-primary">misja</span>
+    <p slot="subtitle" class="mt-8 max-w-[1120px] text-[24px] font-bold leading-[1.18] text-white md:text-[34px]">
+      W LyneoData pomagamy firmom przemysłowym uzyskać pełny, rzetelny wgląd w ich procesy produkcyjne w oparciu o rzeczywiste dane generowane przez biznes.
+    </p>
+  </PageHero>
 
   <section
     class="relative min-h-[760px] overflow-hidden bg-white bg-[url('/assets/about/belief.png')] bg-[length:100%_100%] bg-center bg-no-repeat lg:min-h-[811px]"
@@ -73,13 +26,13 @@ const challenges = [
     <div class="absolute inset-y-0 left-0 w-full bg-white md:w-[47%]"></div>
     <div class="absolute inset-y-0 left-[34%] hidden w-[28%] bg-gradient-to-r from-white via-white/85 to-white/0 md:block"></div>
 
-    <div class="relative mx-auto flex min-h-[760px] w-full max-w-[1760px] items-center px-6 py-20 sm:px-10 lg:min-h-[811px] lg:px-20">
+    <Container class="relative flex min-h-[760px] items-center py-20 lg:min-h-[811px]">
       <div class="max-w-[590px] lg:ml-[160px]">
         <div class="flex items-center gap-8">
           <h2 class="text-[48px] font-bold leading-none text-primary md:text-[64px]">Wierzymy, że...</h2>
           <span class="hidden h-px w-[150px] bg-[#2b2b2b]/20 lg:block" aria-hidden="true"></span>
         </div>
-        <div class="mt-12 space-y-10 text-[22px] font-bold leading-[1.28] text-[#2d2d2d] md:text-[27px]">
+        <div class="mt-12 flex flex-col gap-10 text-[22px] font-bold leading-[1.28] text-[#2d2d2d] md:text-[27px]">
           <p>
             ...dobrze zaplanowana cyfryzacja - oparta na inteligentnym gromadzeniu, integracji i analizie danych - umożliwia przejście od reaktywnego zarządzania do podejścia predykcyjnego.
           </p>
@@ -88,7 +41,7 @@ const challenges = [
           </p>
         </div>
       </div>
-    </div>
+    </Container>
   </section>
 
   <section
@@ -96,7 +49,7 @@ const challenges = [
   >
     <div class="absolute inset-y-0 right-0 w-full bg-[#0d2530]/20 md:w-[55%]"></div>
 
-    <div class="relative mx-auto grid min-h-[720px] w-full max-w-[1760px] items-center gap-12 px-6 py-20 sm:px-10 md:grid-cols-2 lg:min-h-[747px] lg:px-20">
+    <Container class="relative grid min-h-[720px] items-center gap-12 py-20 md:grid-cols-2 lg:min-h-[747px]">
       <div aria-hidden="true"></div>
       <div class="max-w-[640px] md:pl-10">
         <div class="flex items-start gap-16">
@@ -109,11 +62,11 @@ const challenges = [
           Zakłady produkcyjne funkcjonują dziś w środowisku rosnącej presji operacyjnej. Wysokie koszty, ograniczona dostępność wykwalifikowanej kadry, rosnące wymagania jakościowe oraz intensywna konkurencja sprawiają, że brak optymalizacji bezpośrednio przekłada się na straty.
         </p>
       </div>
-    </div>
+    </Container>
   </section>
 
   <section class="bg-white px-6 py-24 text-[#2d2d2d] sm:px-10 lg:px-20 lg:pb-[190px] lg:pt-[270px]">
-    <div class="mx-auto w-full max-w-[1440px]">
+    <Container max="content" padded={false}>
       <h2 class="max-w-[1290px] text-[44px] font-bold leading-[1.12] md:text-[64px] lg:text-[72px]">
         <span class="text-primary">Najczęstsze wyzwania,</span> z jakimi mierzy się współczesny przemysł, <span class="text-primary">to:</span>
       </h2>
@@ -132,7 +85,7 @@ const challenges = [
           ))
         }
       </div>
-    </div>
+    </Container>
   </section>
 
   <SiteFooter />

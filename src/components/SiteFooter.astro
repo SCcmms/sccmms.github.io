@@ -1,4 +1,7 @@
 ---
+import Container from "./Container.astro";
+import { contact } from "../data/site";
+
 interface Props {
   id?: string;
 }
@@ -12,13 +15,15 @@ const { id = "stopka" } = Astro.props;
     alt=""
     class="absolute inset-0 size-full object-cover opacity-30 mix-blend-screen"
   />
-  <div class="relative mx-auto grid w-full max-w-[1760px] gap-12 px-6 sm:px-10 lg:grid-cols-[1fr_1.15fr_0.8fr] lg:items-center lg:px-20">
+  <Container class="relative grid gap-12 lg:grid-cols-[1fr_1.15fr_0.8fr] lg:items-center">
     <div class="border-l border-white/35 pl-14 font-poppins text-[27px] font-semibold leading-[1.1]">
-      <p class="mt-8 text-[29px] tracking-[0.002em]">biuro@lyneodata.com</p>
+      <a href={`mailto:${contact.email}`} class="mt-8 block text-[29px] tracking-[0.002em] transition-colors hover:text-primary">
+        {contact.email}
+      </a>
     </div>
     <div class="border-l border-white/35 pl-14">
-      <p class="mt-8 font-poppins text-[27px] font-semibold leading-[1.1]">ul. Szlak 77 / 222, 31-153 Kraków</p>
+      <address class="mt-8 font-poppins text-[27px] font-semibold not-italic leading-[1.1]">{contact.address}</address>
     </div>
     <img src="/assets/home/logo.png" alt="Lyneodata" class="w-[260px] justify-self-start lg:w-[320px] lg:justify-self-end" />
-  </div>
+  </Container>
 </footer>
