@@ -40,11 +40,19 @@ export const pageMetadata = {
     path: "/technologia/",
     image: "/assets/technology/hero.png",
   },
+  team: {
+    title: "Nasz Zespół",
+    description:
+      "LyneoData Platform integruje dane z systemów przemysłowych, dokumentacji i narzędzi analitycznych w jedno źródło wiedzy operacyjnej.",
+    path: "/zespol/",
+    image: "/assets/team/hero.png",
+  },
 } satisfies Record<string, PageMetadata>;
 
 export const navItems: NavItem[] = [
   { label: "Nasza misja", href: "/o-nas/" },
   { label: "Technologia", href: "/technologia/" },
+  { label: "Nasz Zespół", href: "/zespol/" },
 ];
 
 export const contact = {

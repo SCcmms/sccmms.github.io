@@ -1,6 +1,7 @@
 export interface TextPart {
   text: string;
   accent?: boolean;
+  bold?: boolean;
 }
 
 export const challenges: TextPart[][] = [

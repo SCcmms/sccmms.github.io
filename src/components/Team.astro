@@ -1,0 +1,51 @@
+---
+import Container from "./Container.astro";
+import PageHero from "./PageHero.astro";
+import SiteFooter from "./SiteFooter.astro";
+import Member from "./Member.astro";
+import { members } from "@/data/team";
+---
+
+<main class="overflow-hidden bg-white font-poppins text-ink">
+  <PageHero
+    backgroundImage="/assets/team/hero.png"
+    currentPath="/zespol/"
+    titleId="team-title"
+    ariaLabel="Our Team"
+    overlayClass="bg-black/70"
+    headingClass="text-[48px] tracking-[0.09em] sm:text-6xl md:text-7xl xl:text-[92px]"
+  >
+    O <span class="text-primary">nas</span>
+  </PageHero>
+
+  <section
+    class="relative overflow-hidden "
+  >
+
+    <Container
+      class="relative flex flex-col items-center py-12 lg:py-28"
+    >
+      <h2
+        class="text-4xl md:text-6xl font-bold leading-12 md:leading-20 text-center"
+      >
+        Jesteśmy zespołem <br />
+          <span class="text-primary">specjalistów z doświadczeniem</span>
+      </h2>
+
+      <p class="mt-16 text-3xl text-center">
+        Nasz zespół to specjaliści z doświadczeniem w zakresie wykorzystania AI oraz analityki danych do predykcyjnego utrzymania ruchu, optymalizacji procesów przemysłowych. 
+        Łączymy wiedzę domenową odnośnie procesów przemysłowych z gruntownym doświadczeniem IT.
+      </p>
+    </Container>
+    
+    <Container>
+      {
+        members.map((member, index) => (
+          <Member {...member} class="mb-20" right={index % 2 === 0} />
+        ))
+      }
+    </Container>
+  </section>
+
+  <SiteFooter />
+</main>
