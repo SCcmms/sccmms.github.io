@@ -1,5 +1,5 @@
 ---
-import type { TextPart } from '@/data/about';
+import type { TextPart } from "@/data/about";
 
 interface Props {
   class?: string;
@@ -16,28 +16,50 @@ const { class: className, right = false, name, text, image } = Astro.props;
   class:list={[
     "mx-auto w-full flex items-center flex-col-reverse gap-8 lg:gap-0",
     right ? "lg:flex-row-reverse" : "lg:flex-row",
-    className
+    className,
   ]}
 >
-  <div class:list={["flex flex-col lg:flex-1/2", right ? "lg:-ml-24 text-left items-start" : "lg:-mr-24 md:text-right md:items-end"]}>
+  <div
+    class:list={[
+      "flex flex-col lg:flex-1/2",
+      right
+        ? "lg:-ml-24 text-left items-start"
+        : "lg:-mr-24 md:text-right md:items-end",
+    ]}
+  >
     <p class="text-3xl lg:text-5xl text-primary font-semibold">
       {name}
     </p>
-    <div class="mt-8 h-px w-[240px] bg-ink/45" />
+    <div class="mt-8 h-px w-[240px] bg-ink/45"></div>
     {
       text.map((part) => (
-        <p class:list={[
-          "text-xl lg:text-2xl mt-6",
-          part.bold ? "font-semibold" : "font-normal"
-        ]}>
+        <p
+          class:list={[
+            "text-xl lg:text-2xl mt-6",
+            part.bold ? "font-semibold" : "font-normal",
+          ]}
+        >
           {part.text}
         </p>
       ))
     }
   </div>
-  
+
   <div class="relative flex items-center lg:items-end lg:flex-1/2 lg:max-w-200">
-    <img src={image} alt={name} class:list={["lg:max-w-200 object-contain", right ? 'lg:-mr-20' : 'lg:-ml-20']}/>
-    <div class:list={["mt-8 h-px w-0 lg:w-100 bg-ink/45 absolute bottom-0", right ? 'lg:right-0' : 'lg:left-0']} />
+    <img
+      src={image}
+      alt={name}
+      class:list={[
+        "lg:max-w-200 object-contain",
+        right ? "lg:-mr-20" : "lg:-ml-20",
+      ]}
+    />
+    <div
+      class:list={[
+        "mt-8 h-px w-0 lg:w-100 bg-ink/45 absolute bottom-0",
+        right ? "lg:right-0" : "lg:left-0",
+      ]}
+    >
+    </div>
   </div>
 </div>
