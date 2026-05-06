@@ -11,15 +11,37 @@ const { currentPath = "/" } = Astro.props;
 
 <header class="relative z-20">
   <Container
-    class="flex flex-col gap-8 pt-8 lg:flex-row lg:items-start lg:justify-between lg:pt-[63px]"
+    class="flex flex-col pt-8 lg:flex-row lg:items-start lg:justify-between lg:pt-[63px]"
   >
-    <a href="/" aria-label="Lyneodata home">
-      <img
-        src="/assets/home/logo.png"
-        alt="Lyneodata"
-        class="h-auto w-[210px] sm:w-[260px] lg:w-[322px]"
-      />
-    </a>
+    <div class="flex items-center justify-between lg:gap-8">
+      <a href="/" aria-label="Lyneodata home">
+        <img
+          src="/assets/home/logo.png"
+          alt="Lyneodata"
+          class="h-auto w-[210px] sm:w-[260px] lg:w-[322px]"
+        />
+      </a>
+
+      <button
+        id="menu-toggle"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+        class="relative z-50 lg:hidden"
+      >
+        <svg
+          class="h-6 w-6 text-white transition-transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
 
     <nav
       aria-label="Main navigation"
@@ -42,20 +64,158 @@ const { currentPath = "/" } = Astro.props;
       }
     </nav>
 
-    <nav
-      aria-label="Mobile navigation"
-      class="flex flex-wrap gap-x-5 gap-y-3 font-inter text-sm font-semibold uppercase tracking-[0.08em] text-white/90 lg:hidden"
+    <div
+      id="mobile-menu-overlay"
+      class="mobile-overlay fixed inset-0 hidden bg-black/50 backdrop-blur-sm lg:hidden"
     >
-      {
-        navItems.map((item) => (
-          <a
-            href={item.href}
-            aria-current={currentPath === item.href ? "page" : undefined}
-          >
-            {item.label}
-          </a>
-        ))
-      }
+    </div>
+
+    <nav
+      id="mobile-menu"
+      aria-label="Mobile navigation"
+      class="mobile-menu fixed inset-0 hidden flex-col bg-gradient-to-b from-black to-black/95 px-6 py-8 font-inter text-lg font-semibold uppercase tracking-[0.08em] text-white/90 backdrop-blur lg:hidden"
+    >
+      <div class="flex items-center justify-between mb-12">
+        <a href="/" aria-label="Lyneodata home" class="flex-1">
+          <img
+            src="/assets/home/logo.png"
+            alt="Lyneodata"
+            class="h-auto w-[160px]"
+          />
+        </a>
+      </div>
+      <div class="flex flex-col gap-8">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="border-b border-white/10 py-4 pt-2 transition-colors hover:text-primary"
+              aria-current={currentPath === item.href ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
     </nav>
   </Container>
 </header>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuClose = document.getElementById("menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileOverlay = document.getElementById("mobile-menu-overlay");
+
+  function openMenu() {
+    mobileMenu?.classList.remove("hidden");
+    mobileOverlay?.classList.remove("hidden");
+    mobileMenu?.classList.add("slide-in");
+    mobileMenu?.classList.remove("slide-out");
+    mobileOverlay?.classList.add("fade-in");
+    mobileOverlay?.classList.remove("fade-out");
+    document.body.classList.add("overflow-hidden");
+    menuToggle?.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.remove("slide-in");
+    mobileMenu?.classList.add("slide-out");
+    mobileOverlay?.classList.remove("fade-in");
+    mobileOverlay?.classList.add("fade-out");
+    document.body.classList.remove("overflow-hidden");
+    menuToggle?.setAttribute("aria-expanded", "false");
+
+    // Wait for animation to finish before hiding
+    setTimeout(() => {
+      mobileMenu?.classList.add("hidden");
+      mobileOverlay?.classList.add("hidden");
+    }, 300);
+  }
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = !mobileMenu.classList.contains("hidden");
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    mobileOverlay?.addEventListener("click", closeMenu);
+
+    menuClose?.addEventListener("click", closeMenu);
+
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+</script>
+
+<style>
+  .mobile-menu {
+    animation: none;
+  }
+
+  .mobile-menu.slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+
+  .mobile-menu.slide-out {
+    animation: slideOut 0.3s ease-in forwards;
+  }
+
+  .mobile-overlay {
+    animation: none;
+  }
+
+  .mobile-overlay.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .mobile-overlay.fade-out {
+    animation: fadeOut 0.3s ease-in forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+</style>

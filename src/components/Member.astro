@@ -21,7 +21,7 @@ const { class: className, right = false, name, text, image } = Astro.props;
 >
   <div
     class:list={[
-      "flex flex-col lg:flex-1/2",
+      "flex flex-col lg:flex-1/2 z-1",
       right
         ? "lg:-ml-24 text-left items-start"
         : "lg:-mr-24 md:text-right md:items-end",
@@ -43,6 +43,17 @@ const { class: className, right = false, name, text, image } = Astro.props;
         </p>
       ))
     }
+
+    <div
+      class="flex items-center gap-2 text-lg font-semibold cursor-pointer mt-4"
+    >
+      <div
+        class="bg-primary w-12 h-12 rounded-full flex items-center justify-center pl-0.5"
+      >
+        <img src="/assets/icons/linkedin.png" class="h-5 w-6" />
+      </div>
+      <div>Sprawdź profil <span class="text-primary">Linkedin</span></div>
+    </div>
   </div>
 
   <div class="relative flex items-center lg:items-end lg:flex-1/2 lg:max-w-200">
