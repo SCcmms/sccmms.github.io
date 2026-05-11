@@ -34,7 +34,7 @@ console.log(caseStudy);
           class="relative z-10 object-contain rounded-lg scale-95 group-hover:scale-105 transition-transform duration-500"
         />
       </div>
-      <h2 class="text-5xl md:text-6xl font-bold text-primary">
+      <h2 class="text-5xl md:text-6xl font-bold text-primary text-center">
         {caseStudy.title}
       </h2>
       <div class="text-3xl font-semibold text-center max-w-3/4">
@@ -42,7 +42,12 @@ console.log(caseStudy);
       </div>
       <div class="text-lg text-justify max-w-3/4">
         <div
-          class="prose:font-poppins prose-h3:font-bold prose-h3:text-primary prose-h3:text-6xl prose-h3:text-center prose-h3:my-8 prose-p:text-2xl/8 prose-p:mb-8 prose-li:list-disc prose-li:ml-8 prose-li:text-2xl prose-li:my-2 prose-ul:mb-4"
+          class="prose:font-poppins
+          prose-h3:font-bold prose-h3:text-primary prose-h3:text-6xl prose-h3:text-center prose-h3:mb-8 prose-h3:mt-16
+          prose-p:text-2xl/8 prose-p:mb-8 prose-p:last:mb-0
+          prose-li:list-disc prose-li:ml-8 prose-li:text-2xl prose-li:my-2
+          prose-ul:mb-4
+          prose-img:mt-20"
         >
           <slot />
         </div>

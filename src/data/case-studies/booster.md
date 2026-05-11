@@ -1,6 +1,6 @@
 ---
 href: 'booster'
-title: 'Booster'
+title: 'Startup booster - Strumieniowa Platforma Analityczna'
 subtitle: 'Pilotażowe wdrożenie strumieniowego silnika analitycznego ze wsparciem inteligentnego asystenta'
 note: 'Projekt dofinansowywany w ramach programu „Akcelerator Innowacji Przemysłowych INDUSTRYLAB III” w ramach II Priorytetu Programu Fundusze Europejskie Dla Nowoczesnej Gospodarki 2021–2027 (FENG).'
 img: 'projekt.jpg'
@@ -36,3 +36,5 @@ integracji z oprogramowaniem MLOps oraz rozwiązaniami wspierającymi wykorzysta
 językowych (LLM). W szczególności rozwiązania LLM, zintegrowane w LDP, wspomagają
 analizę danych oraz konfigurację platformy oraz pozwalają na łatwe łączenie wyników analiz z
 wiedzą z dokumentacji technicznej.
+
+![Dotacje](/assets/dotacje.png "Dotacje")
