@@ -60,6 +60,7 @@ export const navItems: NavItem[] = [
   { label: "Nasza misja", href: "/o-nas/" },
   { label: "Technologia", href: "/technologia/" },
   { label: "Nasz Zespół", href: "/zespol/" },
+  { label: "Nasze projekty", href: "/nasze-projekty/" },
 ];
 
 export const contact = {

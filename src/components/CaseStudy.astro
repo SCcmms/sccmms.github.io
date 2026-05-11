@@ -19,10 +19,13 @@ console.log(caseStudy);
     currentPath="/nasze-projekty/"
     titleId="technology-title"
   >
-    <div class="text-6xl text-primary mb-6">Nasze Projekty</div>
+    <div class="text-3xl text-primary mb-6">Nasze Projekty</div>
+    <h2 class="text-5xl md:text-7xl/22 font-bold text-center">
+      {caseStudy.title}
+    </h2>
   </PageHero>
 
-  <section class="relative bg-white py-24 lg:min-h-[780px]">
+  <section class="relative bg-white py-16 lg:min-h-[780px]">
     <Container
       class="flex flex-col items-center gap-14 px-6 sm:px-10"
       padded={false}
@@ -33,12 +36,6 @@ console.log(caseStudy);
           alt="Platforma LyneoData prezentowana na ekranie"
           class="relative z-10 object-contain rounded-lg scale-95 group-hover:scale-105 transition-transform duration-500"
         />
-      </div>
-      <h2 class="text-5xl md:text-6xl font-bold text-primary text-center">
-        {caseStudy.title}
-      </h2>
-      <div class="text-3xl font-semibold text-center max-w-3/4">
-        {caseStudy.subtitle}
       </div>
       <div class="text-lg text-justify max-w-3/4">
         <div
