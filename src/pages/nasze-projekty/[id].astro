@@ -1,0 +1,29 @@
+---
+import CaseStudy from "@/components/CaseStudy.astro";
+import { pageMetadata } from "@/data/site";
+import Main from "@/layouts/main.astro";
+import { getCollection, render } from "astro:content";
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const caseStudies = await getCollection("caseStudies");
+  return caseStudies.map((caseStudy) => ({
+    params: { id: caseStudy.data.href },
+    props: { caseStudy },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { caseStudy } = Astro.props;
+const { Content } = await render(caseStudy);
+const page = pageMetadata.caseStudy;
+---
+
+<Main
+  title={caseStudy.data.title}
+  description={caseStudy.data.note || page.description}
+  path={"nasze-projekty/" + caseStudy.data.href}
+  image={caseStudy.data.img}
+>
+  <CaseStudy caseStudy={caseStudy.data} body={caseStudy.body}>
+    <Content />
+  </CaseStudy>
+</Main>

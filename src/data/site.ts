@@ -47,6 +47,13 @@ export const pageMetadata = {
     path: "/zespol/",
     image: "/assets/team/hero.png",
   },
+  caseStudy: {
+    title: "Nasze Projekty",
+    description:
+      "LyneoData Platform integruje dane z systemów przemysłowych, dokumentacji i narzędzi analitycznych w jedno źródło wiedzy operacyjnej.",
+    path: "/nasz-projekty/",
+    image: "/assets/technology/hero.png",
+  },
 } satisfies Record<string, PageMetadata>;
 
 export const navItems: NavItem[] = [

@@ -1,0 +1,16 @@
+---
+import CaseStudies from "@/components/CaseStudies.astro";
+import { pageMetadata } from "@/data/site";
+import Main from "@/layouts/main.astro";
+
+const page = pageMetadata.caseStudy;
+---
+
+<Main
+  title={page.title}
+  description={page.description}
+  path={page.path}
+  image={page.image}
+>
+  <CaseStudies />
+</Main>

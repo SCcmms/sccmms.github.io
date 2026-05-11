@@ -1,0 +1,50 @@
+---
+import Container from "./Container.astro";
+import PageHero from "./PageHero.astro";
+import SiteFooter from "./SiteFooter.astro";
+import { getCollection } from "astro:content";
+
+const caseStudies = await getCollection("caseStudies");
+---
+
+<main class="overflow-hidden bg-white font-poppins text-ink">
+  <PageHero
+    backgroundImage="/assets/technology/hero.png"
+    currentPath="/nasze-projekty/"
+    titleId="technology-title"
+  >
+    <div class="text-3xl text-primary mb-6">Poznaj</div>
+    Nasze Projekty
+  </PageHero>
+
+  <section class="relative bg-white py-24 lg:min-h-[780px]">
+    <Container
+      class="flex flex-col items-center gap-14 px-6 sm:px-10"
+      padded={false}
+    >
+      {
+        caseStudies.map((study) => (
+          <a
+            href={"/nasze-projekty/" + study.data.href}
+            class="flex flex-col items-center gap-12 cursor-pointer group lg:max-w-2/3"
+          >
+            <div class="rounded-lg overflow-hidden drop-shadow-2xl max-w-2/3">
+              <img
+                src={"/assets/case-studies/" + study.data.img}
+                alt="Platforma LyneoData prezentowana na ekranie"
+                class="relative z-10 object-contain rounded-lg scale-95 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <h2 class="text-5xl md:text-6xl font-bold text-primary">
+              {study.data.title}
+            </h2>
+            <div class="text-3xl font-semibold text-center max-w-3/4">
+              {study.data.subtitle}
+            </div>
+          </a>
+        ))
+      }
+    </Container>
+  </section>
+  <SiteFooter id="kontakt" />
+</main>

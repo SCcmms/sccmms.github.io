@@ -1,0 +1,53 @@
+---
+import Container from "./Container.astro";
+import PageHero from "./PageHero.astro";
+import SiteFooter from "./SiteFooter.astro";
+import type { CaseStudyType } from "@/data/case-studies/case-study";
+
+interface Props {
+  caseStudy: CaseStudyType;
+  body?: string;
+}
+
+const { caseStudy, body } = Astro.props;
+console.log(caseStudy);
+---
+
+<main class="overflow-hidden bg-white font-poppins text-ink">
+  <PageHero
+    backgroundImage="/assets/technology/hero.png"
+    currentPath="/nasze-projekty/"
+    titleId="technology-title"
+  >
+    <div class="text-6xl text-primary mb-6">Nasze Projekty</div>
+  </PageHero>
+
+  <section class="relative bg-white py-24 lg:min-h-[780px]">
+    <Container
+      class="flex flex-col items-center gap-14 px-6 sm:px-10"
+      padded={false}
+    >
+      <div class="rounded-lg overflow-hidden drop-shadow-2xl max-w-2/3">
+        <img
+          src={"/assets/case-studies/" + caseStudy.img}
+          alt="Platforma LyneoData prezentowana na ekranie"
+          class="relative z-10 object-contain rounded-lg scale-95 group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      <h2 class="text-5xl md:text-6xl font-bold text-primary">
+        {caseStudy.title}
+      </h2>
+      <div class="text-3xl font-semibold text-center max-w-3/4">
+        {caseStudy.subtitle}
+      </div>
+      <div class="text-lg text-justify max-w-3/4">
+        <div
+          class="prose:font-poppins prose-h3:font-bold prose-h3:text-primary prose-h3:text-6xl prose-h3:text-center prose-h3:my-8 prose-p:text-2xl/8 prose-p:mb-8 prose-li:list-disc prose-li:ml-8 prose-li:text-2xl prose-li:my-2 prose-ul:mb-4"
+        >
+          <slot />
+        </div>
+      </div>
+    </Container>
+  </section>
+  <SiteFooter id="kontakt" />
+</main>
