@@ -37,4 +37,12 @@ językowych (LLM). W szczególności rozwiązania LLM, zintegrowane w LDP, wspom
 analizę danych oraz konfigurację platformy oraz pozwalają na łatwe łączenie wyników analiz z
 wiedzą z dokumentacji technicznej.
 
+
+
+#### Projekt dofinansowany ze środków Unii Europejskiej.
+
+#### Wartość projektu: 388 118,00
+
+#### Wartość wsparcia: 356 716,06
+
 ![Dotacje](/assets/dotacje.png "Dotacje")
